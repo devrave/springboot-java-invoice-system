@@ -1,18 +1,19 @@
 package com.andres.springboot.di.factura.springboot_difactura.models;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
 
 @Component
 public class Client {
-  private String name;
-  private String lastname;
-
-
   
-  public Client(String name, String lastname) {
-    this.name = name;
-    this.lastname = lastname;
-  }
+  @Value("${client.name}")
+  private String name;
+
+  @Value("${client.lastname}")
+  private String lastname;
+  
+
   public String getName() {
     return name;
   }

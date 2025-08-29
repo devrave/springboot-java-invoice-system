@@ -3,15 +3,19 @@ package com.andres.springboot.di.factura.springboot_difactura.models;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component // se usa para marcar una clase como un componente gestionado por el contenedor de Spring (el IoC container).
 public class Invoice {
 
   @Autowired
   private Client client;
 
+  @Value("${invoice.description}")
   private String description;
+
+  @Autowired
   private List<Item> Items;
 
 
@@ -32,6 +36,10 @@ public class Invoice {
   }
   public void setItems(List<Item> items) {
     Items = items;
+  }
+
+  public int getTotal(){
+    return 48;
   }
 
 

@@ -39,7 +39,18 @@ public class Invoice {
   }
 
   public int getTotal(){
-    return 48;
+    //----iteracion usando un for each
+    // int total = 0;
+    // for (Item item : Items){
+    //    total += item.getImporte();
+    // }
+   
+    //OTRA MANERA ES USANDO EL API STREAM, PROGRAMACION FUNCIONAL
+
+    int total = Items.stream()
+    .map(item -> item.getImporte())
+    .reduce(0,(sum, importe) -> sum + importe);
+    return total;
   }
 
 
